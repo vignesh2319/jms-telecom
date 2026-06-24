@@ -1,0 +1,12 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eefaf5"/><stop offset="1" stop-color="#e8efff"/></linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#bg)"/>
+  <path d="M250 260a150 150 0 01300 0" fill="none" stroke="#0056b3" stroke-width="34" stroke-linecap="round"/>
+  <rect x="180" y="245" width="115" height="145" rx="45" fill="#0f172a"/>
+  <rect x="505" y="245" width="115" height="145" rx="45" fill="#0f172a"/>
+  <circle cx="400" cy="285" r="58" fill="#ff9900"/>
+  <path d="M378 255v60l54-30z" fill="#ffffff"/>
+  <text x="400" y="455" text-anchor="middle" font-family="Segoe UI, Arial" font-size="34" font-weight="700" fill="#0056b3">Wireless Audio</text>
+</svg>

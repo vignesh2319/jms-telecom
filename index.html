@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JMS Telecom | Premium Mobile Accessories</title>
+<style>
+:root {
+    --navy: #07111f;
+    --blue: #2f8cff;
+    --cyan: #24d2ff;
+    --gold: #ffb703;
+    --ink: #eef6ff;
+    --muted: #9eb1c7;
+    --soft: #08111f;
+    --line: #203249;
+    --white: #ffffff;
+    --panel: #101d2e;
+    --panel-soft: #13243a;
+    --shadow: 0 20px 55px rgba(0, 0, 0, 0.38);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(36, 210, 255, 0.12), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(255, 183, 3, 0.1), transparent 30rem),
+        var(--soft);
+    color: var(--ink);
+    line-height: 1.6;
+}
+a {
+    color: inherit;
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7, 17, 31, 0.9);
+    border-bottom: 1px solid rgba(71, 97, 130, 0.45);
+    backdrop-filter: blur(16px);
+    padding: 0.9rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.brand-mark {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    color: var(--white);
+    font-weight: 900;
+    box-shadow: 0 12px 28px rgba(11, 103, 213, 0.24);
+}
+header h1 {
+    color: var(--white);
+    font-size: 1.45rem;
+    line-height: 1.1;
+}
+.tagline {
+    color: var(--muted);
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-top: 3px;
+}
+nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+nav a {
+    border-radius: 6px;
+    color: #dce9f8;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 10px 14px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+nav a:hover {
+    background: rgba(47, 140, 255, 0.14);
+    color: var(--white);
+    transform: translateY(-1px);
+}
+.hero {
+    min-height: calc(100vh - 74px);
+    padding: 5.5rem 5% 4rem;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    align-items: center;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(105deg, rgba(15, 39, 71, 0.94) 0%, rgba(15, 39, 71, 0.86) 48%, rgba(15, 39, 71, 0.42) 100%),
+        url("images/cover.jpg") center right / cover no-repeat;
+    z-index: -2;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -28% 42%;
+    height: 62%;
+    background: rgba(255, 183, 3, 0.18);
+    transform: rotate(-8deg);
+    z-index: -1;
+}
+.hero-content {
+    color: var(--white);
+    max-width: 680px;
+}
+.eyebrow {
+    color: var(--gold);
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+.hero h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    max-width: 620px;
+}
+.hero p {
+    color: #dce8f8;
+    font-size: 1.15rem;
+    margin: 22px 0 30px;
+    max-width: 560px;
+}
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+.btn {
+    align-items: center;
+    border-radius: 8px;
+    display: inline-flex;
+    font-weight: 800;
+    min-height: 48px;
+    justify-content: center;
+    padding: 13px 24px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-primary {
+    background: var(--gold);
+    color: #1f2937;
+    box-shadow: 0 16px 34px rgba(255, 183, 3, 0.25);
+}
+.btn-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: var(--white);
+}
+.btn:hover {
+    transform: translateY(-2px);
+}
+.btn-primary:hover {
+    background: #ffc233;
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+.section-heading {
+    padding: 4.5rem 5% 1.4rem;
+    text-align: center;
+}
+.section-heading h2 {
+    color: var(--white);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+.section-heading p {
+    color: var(--muted);
+    margin: 10px auto 0;
+    max-width: 620px;
+}
+.products {
+    padding: 1rem 5% 4.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+.product-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.product-card:hover {
+    border-color: rgba(11, 103, 213, 0.28);
+    box-shadow: var(--shadow);
+    transform: translateY(-7px);
+}
+.product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #0c1828;
+    display: block;
+}
+.product-card-content {
+    padding: 22px;
+}
+.product-card h3 {
+    color: var(--white);
+    font-size: 1.28rem;
+    margin-bottom: 8px;
+}
+.product-card p {
+    color: var(--muted);
+}
+.badge {
+    background: rgba(36, 210, 255, 0.12);
+    border: 1px solid rgba(36, 210, 255, 0.34);
+    border-radius: 999px;
+    color: #80eaff;
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    padding: 5px 10px;
+}
+.visit-band {
+    background: linear-gradient(135deg, #0c1b2d, #07111f);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 24px;
+    align-items: center;
+    padding: 3rem 5%;
+}
+.visit-band p {
+    color: #d9e6f5;
+    max-width: 700px;
+    margin-top: 8px;
+}
+.visit-band .btn {
+    justify-self: end;
+}
+footer {
+    background-color: #050b14;
+    color: #d4e1f0;
+    text-align: center;
+    padding: 1.5rem;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: rgba(7, 24, 43, 0.72);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.modal-content {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    width: min(92vw, 520px);
+    max-height: 86vh;
+    overflow: auto;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+    animation: fadeIn 0.25s ease;
+    box-shadow: var(--shadow);
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-content h3 {
+    color: var(--white);
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+}
+.modal-content p {
+    color: var(--muted);
+    margin-top: 10px;
+}
+.close-btn {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    color: #7c8795;
+}
+.close-btn:hover {
+    color: var(--ink);
+}
+.product-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+    text-align: left;
+}
+.product-list li {
+    background-color: var(--panel-soft);
+    border: 1px solid #2a4360;
+    border-radius: 6px;
+    color: #e6f2ff;
+    font-weight: 700;
+    padding: 10px 12px;
+}
+.map-link {
+    color: #74c7ff;
+    font-weight: 800;
+}
+@media (max-width: 900px) {
+    header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    nav {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    nav a {
+        background: rgba(255, 255, 255, 0.06);
+    }
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .visit-band {
+        grid-template-columns: 1fr;
+    }
+    .visit-band .btn {
+        justify-self: start;
+    }
+}
+@media (max-width: 640px) {
+    header {
+        padding: 0.85rem 4%;
+    }
+    .brand-mark {
+        height: 40px;
+        width: 40px;
+    }
+    nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    nav a {
+        text-align: center;
+    }
+    .hero {
+        min-height: auto;
+        padding: 4rem 5% 3.5rem;
+    }
+    .hero::before {
+        background:
+            linear-gradient(105deg, rgba(15, 39, 71, 0.96), rgba(15, 39, 71, 0.82)),
+            url("images/cover.jpg") center / cover no-repeat;
+    }
+    .hero-actions,
+    .btn {
+        width: 100%;
+    }
+    .products {
+        grid-template-columns: 1fr;
+    }
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+    .modal-content {
+        padding: 26px 20px;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+    <div class="brand">
+        <div class="brand-mark">JMS</div>
+        <div>
+            <h1>JMS Telecom</h1>
+            <span class="tagline">Premium mobile accessories</span>
+        </div>
+    </div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#" onclick="openModal('productsModal'); return false;">Products</a>
+        <a href="#" onclick="openModal('locationModal'); return false;">Location</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="eyebrow">Hyderabad mobile accessory store</p>
+        <h2>Upgrade Your Mobile Experience</h2>
+        <p>Premium cases, tempered glass, chargers, audio gear, smartwatch accessories, and daily essentials selected for style, protection, and performance.</p>
+        <div class="hero-actions">
+            <a href="#" class="btn btn-primary" onclick="openModal('productsModal'); return false;">Shop Products</a>
+            <a href="#" class="btn btn-secondary" onclick="openModal('locationModal'); return false;">Visit Store</a>
+        </div>
+    </div>
+</section>
+
+<section class="section-heading" id="products">
+    <h2>Featured Categories</h2>
+    <p>Choose practical accessories that protect your device, charge faster, and make everyday use feel smoother.</p>
+</section>
+
+<section class="products" aria-label="Featured product categories">
+    <div class="product-card">
+        <img src="images/cover.jpg" alt="Premium Phone Covers">
+        <div class="product-card-content">
+            <span class="badge">Protection</span>
+            <h3>Premium Cases</h3>
+            <p>Durable covers with a clean finish for everyday protection.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="images/charger.png" alt="Fast Chargers">
+        <div class="product-card-content">
+            <span class="badge">Power</span>
+            <h3>Fast Chargers</h3>
+            <p>Chargers and cables built for quick, dependable power.</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="images/audio.png" alt="Audio accessories">
+        <div class="product-card-content">
+            <span class="badge">Sound</span>
+            <h3>Audio</h3>
+            <p>Earphones and Bluetooth audio for calls, music, and travel.</p>
+        </div>
+    </div>
+</section>
+
+<section class="visit-band">
+    <div>
+        <h2>Need the right accessory today?</h2>
+        <p>Visit JMS Telecom at Shop no-01, Anthem Arcade Complex, Gujarathi Galli, Sultan Bazar, Koti, Hyderabad.</p>
+    </div>
+    <a href="#" class="btn btn-primary" onclick="openModal('contactModal'); return false;">Contact Us</a>
+</section>
+
+<footer>
+    <p>&copy; 2026 JMS Telecom. All Rights Reserved.</p>
+</footer>
+
+<!-- Products Modal -->
+<div id="productsModal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('productsModal')">&times;</span>
+        <h3>Products</h3>
+        <ul class="product-list">
+            <li>Phone covers</li>
+            <li>Tempered glass</li>
+            <li>Chargers</li>
+            <li>Charging cables</li>
+            <li>Earphones</li>
+            <li>Bluetooth audio</li>
+            <li>Smartwatch</li>
+            <li>Smartwatch accessories</li>
+            <li>Car accessories</li>
+            <li>Mobile holders</li>
+            <li>Memory/storage</li>
+            <li>Power banks</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contactModal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('contactModal')">&times;</span>
+        <h3>Contact Us</h3>
+        <p><strong>Owner:</strong> Abhijeet Gupta</p>
+        <p><strong>Email:</strong> support@jmstelecom.com</p>
+        <p><strong>Phone / WhatsApp:</strong> 8712501250</p>
+    </div>
+</div>
+
+<!-- Location Modal -->
+<div id="locationModal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('locationModal')">&times;</span>
+        <h3>Our Location</h3>
+        <p><strong>ANTHEM ARCADE COMPLEX</strong><br>
+           Gujarathi Galli, Sultan Bazar,<br>
+           Koti, Hyderabad, Telangana 500001<br>
+           Shop no-01</p>
+        <p><strong>Google Maps:</strong> <a class="map-link" href="https://maps.app.goo.gl/Fp4TC91byrymZ8LG9" target="_blank">View on Maps</a></p>
+    </div>
+</div>
+
+<script>
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) modal.style.display = "flex";
+}
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target.classList.contains("modal")) {
+        event.target.style.display = "none";
+    }
+};
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        document.querySelectorAll(".modal").forEach(modal => {
+            modal.style.display = "none";
+        });
+    }
+});
+</script>
+</body>
+</html>
